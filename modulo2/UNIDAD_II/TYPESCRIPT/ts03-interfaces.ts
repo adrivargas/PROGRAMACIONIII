@@ -1,4 +1,4 @@
-interface Persona {
+interface Persona{
     nombre: string,
     apellido: string,
 }
@@ -13,45 +13,42 @@ interface Credenciales{
     clave: string,
     usuario: string,
 }
-function login(Credenciales: Credenciales): void{
-    console.log("Bienvenido", Credenciales.usuario);
+function login(credencial: Credenciales): void{
+    console.log("Bienvenido", credencial.usuario);
 }
 let miUsuario: Credenciales = {
-    clave:"123",
+    clave: "123",
     usuario: "Jesus",
 }
 login(miUsuario);
 
-//Hacer una interface figura que tenga base, altura y tipo de figura(caudrado y rectangulo)
-//se la pase a uan funcion segun el tipo que se le pase calcular el area
-
+//Hacer uan interface que tenga base, altura y tipo de figura(cyadrado y rectancgulo) se le pase a una finción segun el tipo que se le pase, calcule el area
 interface Figura {
     base: number;
     altura: number;
-    tipo: 'cuadrado' | 'rectangulo';
+    tipo: 'cuadrado' | 'rectángulo';
 }
 
 function calcularArea(figura: Figura): number {
     if (figura.tipo === 'cuadrado') {
-        return figura.base * figura.base;
-    } else if (figura.tipo === 'rectangulo') {
-        return figura.base * figura.altura;
+        return figura.base * figura.base; 
+    } else if (figura.tipo === 'rectángulo') {
+        return figura.base * figura.altura; 
     }
     return 0;
 }
 
-const figuracuadrado: Figura = {
-    base: 4,
-    altura: 4,
-    tipo: 'cuadrado'
-};
-
-const figurarectangulo: Figura = {
+let cuadrado: Figura = {
     base: 5,
-    altura: 3,
-    tipo: 'rectangulo'
+    altura: 5,
+    tipo: 'cuadrado',
 };
 
-console.log(`Área1 (cuadrado): ${calcularArea(figuracuadrado)}`);
-console.log(`Área2 (rectángulo): ${calcularArea(figurarectangulo)}`);
+let rectangulo: Figura = {
+    base: 4,
+    altura: 6,
+    tipo: 'rectángulo',
+};
 
+console.log("Área del cuadrado:", calcularArea(cuadrado));
+console.log("Área del rectángulo:", calcularArea(rectangulo));

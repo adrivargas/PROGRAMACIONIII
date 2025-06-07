@@ -3,8 +3,8 @@ var empleado = {
     apellido: "Marley"
 };
 console.log("Empleado: ".concat(empleado.nombre, " ").concat(empleado.apellido));
-function login(Credenciales) {
-    console.log("Bienvenido", Credenciales.usuario);
+function login(credencial) {
+    console.log("Bienvenido", credencial.usuario);
 }
 var miUsuario = {
     clave: "123",
@@ -13,22 +13,22 @@ var miUsuario = {
 login(miUsuario);
 function calcularArea(figura) {
     if (figura.tipo === 'cuadrado') {
-        return figura.base * figura.base;
+        return figura.base * figura.base; // Área del cuadrado: lado^2
     }
-    else if (figura.tipo === 'rectangulo') {
-        return figura.base * figura.altura;
+    else if (figura.tipo === 'rectángulo') {
+        return figura.base * figura.altura; // Área del rectángulo: base * altura
     }
     return 0;
 }
-var figuracuadrado = {
-    base: 4,
-    altura: 4,
-    tipo: 'cuadrado'
-};
-var figurarectangulo = {
+var cuadrado = {
     base: 5,
-    altura: 3,
-    tipo: 'rectangulo'
+    altura: 5, // En un cuadrado, base y altura son iguales
+    tipo: 'cuadrado',
 };
-console.log("\u00C1rea1 (cuadrado): ".concat(calcularArea(figuracuadrado)));
-console.log("\u00C1rea2 (rect\u00E1ngulo): ".concat(calcularArea(figurarectangulo)));
+var rectangulo = {
+    base: 4,
+    altura: 6,
+    tipo: 'rectángulo',
+};
+console.log("Área del cuadrado:", calcularArea(cuadrado));
+console.log("Área del rectángulo:", calcularArea(rectangulo));
